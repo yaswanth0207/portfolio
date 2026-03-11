@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yaswanth Chowdary Medarametla - AI Engineer Portfolio</title>
+    <meta
+      name="description"
+      content="AI/LLM Engineer specializing in production-ready RAG systems, multi-agent architectures, and data-driven applications."
+    />
+    <meta
+      name="keywords"
+      content="AI Engineer, LLM Engineer, RAG, LangChain, LangGraph, Python, Yaswanth Chowdary Medarametla"
+    />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Yaswanth Chowdary Medarametla - AI Engineer Portfolio" />
+    <meta
+      property="og:description"
+      content="AI/LLM Engineer specializing in RAG systems, multi-agent architectures, and data engineering."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-portfolio-url.com" />
+    <!-- Replace with actual URL -->
+    <meta property="og:image" content="assets/images/og-image.png" />
+    <!-- Replace with actual social preview image -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" />
+    <!-- Replace favicon with actual icon -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Google Analytics placeholder -->
+    <!--
+    <script>
+      // Google Analytics placeholder - replace with actual GA script
+    </script>
+    -->
+  </head>
+  <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Hero background particles canvas -->
+    <canvas id="hero-particles" aria-hidden="true"></canvas>
+
+    <!-- Header / Navigation -->
+    <header class="site-header" id="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <div class="nav__logo" aria-label="Home">
+          <span class="nav__logo-mark"></span>
+          <span class="nav__logo-text">Yaswanth Chowdary Medarametla</span>
+        </div>
+
+        <button
+          class="nav__toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav__links">
+          <a href="#about" class="nav__link">About</a>
+          <a href="#projects" class="nav__link">Projects</a>
+          <a href="#skills" class="nav__link">Skills</a>
+          <a href="#contact" class="nav__link">Contact</a>
+        </div>
+
+        <div class="nav__mobile-menu" id="mobile-menu" aria-hidden="true">
+          <a href="#about" class="nav__mobile-link">About</a>
+          <a href="#projects" class="nav__mobile-link">Projects</a>
+          <a href="#skills" class="nav__mobile-link">Skills</a>
+          <a href="#contact" class="nav__mobile-link">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="section hero" id="hero" aria-label="Introduction">
+        <div class="container hero__content">
+          <div class="hero__text">
+            <p class="hero__eyebrow">AI / LLM Engineer</p>
+            <h1 class="hero__title">Building production-ready LLM and agentic AI systems</h1>
+            <p class="hero__subtitle">
+              Building production-ready LLM applications with LangChain, LangGraph, and modern AI frameworks.
+            </p>
+            <p class="hero__typing" aria-live="polite">
+              <span class="hero__typing-label">Focus:</span>
+              <span class="hero__typing-text" id="typing-text"></span>
+              <span class="hero__typing-cursor" aria-hidden="true">|</span>
+            </p>
+            <div class="hero__actions">
+              <button class="btn btn--primary" data-scroll-target="#projects">
+                View Projects
+              </button>
+              <a
+                class="btn btn--secondary"
+                href="assets/docs/Yaswanth_Resume.pdf"
+                download
+                aria-label="Download resume as PDF"
+              >
+                Download Resume
+              </a>
+            </div>
+            <div class="hero__meta">
+              <div class="hero__meta-item">
+                <span class="hero__meta-label">Specialties</span>
+                <span class="hero__meta-value">RAG · Agents · Data</span>
+              </div>
+              <div class="hero__meta-item">
+                <span class="hero__meta-label">Location</span>
+                <span class="hero__meta-value">Dublin, CA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="section about" id="about" aria-labelledby="about-heading">
+        <div class="container section__inner">
+          <div class="section__header">
+            <h2 class="section__title" id="about-heading">About</h2>
+            <p class="section__subtitle">
+              AI/LLM Engineer focused on RAG systems, multi-agent architectures, and data-driven products.
+            </p>
+          </div>
+
+          <div class="about__grid">
+            <div class="about__bio reveal-on-scroll">
+              <p>
+                AI/LLM Engineer with hands-on experience building production-ready RAG systems, multi-agent
+                architectures, and data analysis platforms. 2nd place winner in a competitive RAG hackathon
+                (100+ participants). Strong background in data engineering with AWS pipelines and ETL systems.
+              </p>
+            </div>
+
+            <div class="about__stats reveal-on-scroll">
+              <div class="stat-card">
+                <span class="stat-card__value">3</span>
+                <span class="stat-card__label">Production Projects</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__value">2nd</span>
+                <span class="stat-card__label">Hackathon Winner</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__value">AWS</span>
+                <span class="stat-card__label">Certified Data Engineer</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__value">0.92</span>
+                <span class="stat-card__label">RAGAS Faithfulness Score</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__value">100%</span>
+                <span class="stat-card__label">Local-First (No API Costs)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__tech reveal-on-scroll" aria-label="Technologies I work with">
+            <h3 class="about__tech-title">Technologies I work with</h3>
+            <div class="tech-grid">
+              <div class="tech-group">
+                <h4>LLM Orchestration</h4>
+                <p>LangChain, LlamaIndex, LangGraph</p>
+              </div>
+              <div class="tech-group">
+                <h4>Models & Providers</h4>
+                <p>OpenAI, Anthropic, Ollama</p>
+              </div>
+              <div class="tech-group">
+                <h4>Vector Databases</h4>
+                <p>ChromaDB, Qdrant, FAISS</p>
+              </div>
+              <div class="tech-group">
+                <h4>Backend & Data</h4>
+                <p>Python, FastAPI, Streamlit</p>
+              </div>
+              <div class="tech-group">
+                <h4>Infrastructure</h4>
+                <p>AWS, Docker, Git</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="section projects" id="projects" aria-labelledby="projects-heading">
+        <div class="container section__inner">
+          <div class="section__header">
+            <h2 class="section__title" id="projects-heading">Projects</h2>
+            <p class="section__subtitle">
+              Selected AI projects focused on RAG systems, multi-agent workflows, and data-driven insights.
+            </p>
+          </div>
+
+          <!-- Optional filters -->
+          <div class="projects__filters" aria-label="Filter projects">
+            <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="rag">RAG</button>
+            <button class="filter-btn" data-filter="agents">Agents</button>
+            <button class="filter-btn" data-filter="data">Data</button>
+          </div>
+
+          <div class="projects__grid">
+            <!-- Project 1 -->
+            <article
+              class="project-card reveal-on-scroll"
+              data-category="rag agents"
+              aria-labelledby="project-1-title"
+            >
+              <div class="project-card__badge" aria-label="2nd Place Winner">
+                🏆 2nd Place Winner
+              </div>
+              <h3 class="project-card__title" id="project-1-title">Agentic RAG Chatbot</h3>
+              <p class="project-card__subtitle">Hybrid retrieval system with persistent memory</p>
+              <p class="project-card__description">
+                Production-ready RAG system achieving 0.88 faithfulness score using RAGAS evaluation. Features hybrid
+                retrieval (BM25 + semantic), LangGraph state machine for memory management, and FlashRank reranking.
+                Fully local deployment with Ollama - zero API costs.
+              </p>
+
+              <ul class="project-card__features">
+                <li>Hybrid retrieval (BM25 + semantic search)</li>
+                <li>LangGraph agent for persistent memory</li>
+                <li>RAGAS evaluation framework (0.88 faithfulness)</li>
+                <li>FlashRank cross-encoder reranking</li>
+                <li>&lt;1s query latency, fully local</li>
+              </ul>
+
+              <div class="project-card__metrics">
+                <div class="metric">
+                  <span class="metric__label">Faithfulness</span>
+                  <span class="metric__value">0.88</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Latency</span>
+                  <span class="metric__value">&lt;1s</span>
+                </div>
+                <div class="metric">
+                  <span class="metric__label">Deployment</span>
+                  <span class="metric__value">Local (Ollama)</span>
+                </div>
+              </div>
+
+              <div class="project-card__tags" aria-label="Tech stack">
+                <span>LangChain</span>
+                <span>LlamaIndex</span>
+                <span>LangGraph</span>
+                <span>ChromaDB</span>
+                <span>Ollama</span>
+                <span>RAGAS</span>
+                <span>Docker</span>
+                <span>Streamlit</span>
+              </div>
+
+              <div class="project-card__actions">
+                <a href="#" class="btn btn--ghost" aria-label="Open GitHub repo for Agentic RAG Chatbot">
+                  GitHub
+                  <!-- Add actual URL -->
+                </a>
+                <button
+                  class="btn btn--primary btn--case-study"
+                  data-project="agentic-rag"
+                  aria-label="Open case study for Agentic RAG Chatbot"
+                >
+                  Case Study
+                </button>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article
+              class="project-card reveal-on-scroll"
+              data-category="rag agents"
+              aria-labelledby="project-2-title"
+            >
+              <div class="project-card__badge" aria-label="Developer tool">
+                💻 Developer Tool
+              </div>
+              <h3 class="project-card__title" id="project-2-title">CodeLens - Code Documentation Assistant</h3>
+              <p class="project-card__subtitle">RAG system for code understanding and documentation</p>
+              <p class="project-card__description">
+                AI-powered code documentation tool with GitHub integration. Features syntax-aware chunking using
+                Tree-sitter, dependency graph visualization, and automated docstring generation. Supports multiple
+                programming languages.
+              </p>
+
+              <ul class="project-card__features">
+                <li>GitHub repo integration</li>
+                <li>Syntax-aware code chunking (AST-based)</li>
+                <li>Dependency graph visualization</li>
+                <li>Auto-generate docstrings</li>
+                <li>Cross-file code search</li>
+              </ul>
+
+              <div class="project-card__tags" aria-label="Tech stack">
+                <span>LangChain</span>
+                <span>Tree-sitter</span>
+                <span>ChromaDB</span>
+                <span>NetworkX</span>
+                <span>Ollama</span>
+                <span>Streamlit</span>
+              </div>
+
+              <div class="project-card__actions">
+                <a href="#" class="btn btn--ghost" aria-label="Open GitHub repo for CodeLens">
+                  GitHub
+                  <!-- Add actual URL -->
+                </a>
+                <button
+                  class="btn btn--primary btn--case-study"
+                  data-project="codelens"
+                  aria-label="Open case study for CodeLens"
+                >
+                  Case Study
+                </button>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article
+              class="project-card reveal-on-scroll"
+              data-category="agents data"
+              aria-labelledby="project-3-title"
+            >
+              <div class="project-card__badge" aria-label="Latest project">
+                📊 Latest Project
+              </div>
+              <h3 class="project-card__title" id="project-3-title">AI Data Analyst Agent</h3>
+              <p class="project-card__subtitle">Multi-agent system for automated data analysis</p>
+              <p class="project-card__description">
+                LangGraph-powered data analyst that generates pandas code, creates visualizations, and produces
+                professional PDF reports. Features auto-generated dashboard with 4 charts on upload, self-healing agent
+                workflow, and 4 analysis modes.
+              </p>
+
+              <ul class="project-card__features">
+                <li>Auto-dashboard (4 charts on upload)</li>
+                <li>Natural language → pandas code</li>
+                <li>4 modes: Analyze, Visualize, Summarize, Find Anomalies</li>
+                <li>Self-healing agent (auto-retry failed code)</li>
+                <li>PDF report generation</li>
+              </ul>
+
+              <div class="project-card__tags" aria-label="Tech stack">
+                <span>LangGraph</span>
+                <span>FastAPI</span>
+                <span>Streamlit</span>
+                <span>Ollama</span>
+                <span>pandas</span>
+                <span>plotly</span>
+              </div>
+
+              <div class="project-card__actions">
+                <a href="#" class="btn btn--ghost" aria-label="Open GitHub repo for AI Data Analyst Agent">
+                  GitHub
+                  <!-- Add actual URL -->
+                </a>
+                <button
+                  class="btn btn--primary btn--case-study"
+                  data-project="data-analyst"
+                  aria-label="Open case study for AI Data Analyst Agent"
+                >
+                  Case Study
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="section skills" id="skills" aria-labelledby="skills-heading">
+        <div class="container section__inner">
+          <div class="section__header">
+            <h2 class="section__title" id="skills-heading">Skills</h2>
+            <p class="section__subtitle">
+              Tools and technologies I use to ship reliable, production-grade AI systems.
+            </p>
+          </div>
+
+          <div class="skills__grid">
+            <div class="skills__technical reveal-on-scroll" aria-label="Technical skills">
+              <h3 class="skills__subheading">Technical Skills</h3>
+              <div class="skills-cards">
+                <div class="skill-card">
+                  <h4>LLM Frameworks</h4>
+                  <p>LangChain, LlamaIndex, LangGraph, OpenAI API, Anthropic API, Ollama</p>
+                </div>
+                <div class="skill-card">
+                  <h4>Vector Databases</h4>
+                  <p>ChromaDB, Qdrant, FAISS, Pinecone</p>
+                </div>
+                <div class="skill-card">
+                  <h4>Data Engineering</h4>
+                  <p>Python, SQL, PySpark, pandas, AWS (S3, Glue, Athena, Lambda), Docker, Git, Linux</p>
+                </div>
+                <div class="skill-card">
+                  <h4>Evaluation &amp; Testing</h4>
+                  <p>RAGAS, Custom Metrics, pytest, unittest</p>
+                </div>
+                <div class="skill-card">
+                  <h4>Web Frameworks</h4>
+                  <p>FastAPI, Flask, Streamlit</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills__timeline reveal-on-scroll" aria-label="Timeline of achievements">
+              <h3 class="skills__subheading">Achievements</h3>
+              <ol class="timeline">
+                <li class="timeline__item">
+                  <div class="timeline__date">Feb 2026</div>
+                  <div class="timeline__content">
+                    <span class="timeline__icon">🏆</span>
+                    <p>2nd Place - RAG Hackathon (100+ participants)</p>
+                  </div>
+                </li>
+                <li class="timeline__item">
+                  <div class="timeline__date">Jan 2026</div>
+                  <div class="timeline__content">
+                    <span class="timeline__icon">🚀</span>
+                    <p>Built CodeLens - Code Documentation Tool</p>
+                  </div>
+                </li>
+                <li class="timeline__item">
+                  <div class="timeline__date">Dec 2025</div>
+                  <div class="timeline__content">
+                    <span class="timeline__icon">📊</span>
+                    <p>Built AI Data Analyst Agent</p>
+                  </div>
+                </li>
+                <li class="timeline__item">
+                  <div class="timeline__date">Nov 2025</div>
+                  <div class="timeline__content">
+                    <span class="timeline__icon">🎓</span>
+                    <p>AWS Certified Data Engineer - Associate (DEA-C01)</p>
+                  </div>
+                </li>
+                <li class="timeline__item">
+                  <div class="timeline__date">Aug 2025</div>
+                  <div class="timeline__content">
+                    <span class="timeline__icon">💼</span>
+                    <p>Data Engineer - Community Dreams Foundation</p>
+                  </div>
+                </li>
+                <li class="timeline__item">
+                  <div class="timeline__date">May 2025</div>
+                  <div class="timeline__content">
+                    <span class="timeline__icon">🎓</span>
+                    <p>MS Computer Science - University of Texas Arlington</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="section contact" id="contact" aria-labelledby="contact-heading">
+        <div class="container section__inner">
+          <div class="section__header">
+            <h2 class="section__title" id="contact-heading">Let's Build Something Amazing</h2>
+            <p class="section__subtitle">
+              Open to AI Engineer opportunities, collaborations, and applied research projects.
+            </p>
+          </div>
+
+          <div class="contact__grid">
+            <div class="contact__info reveal-on-scroll">
+              <ul class="contact-list">
+                <li>
+                  <span class="contact-list__icon" aria-hidden="true">📧</span>
+                  <a href="mailto:yaswanthmedarametla2@gmail.com">
+                    yaswanthmedarametla2@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <span class="contact-list__icon" aria-hidden="true">💼</span>
+                  <a href="#" target="_blank" rel="noreferrer">
+                    LinkedIn
+                    <!-- Add actual URL -->
+                  </a>
+                </li>
+                <li>
+                  <span class="contact-list__icon" aria-hidden="true">🐙</span>
+                  <a href="#" target="_blank" rel="noreferrer">
+                    GitHub
+                    <!-- Add actual URL -->
+                  </a>
+                </li>
+                <li>
+                  <span class="contact-list__icon" aria-hidden="true">📍</span>
+                  <span>Dublin, CA</span>
+                </li>
+              </ul>
+
+              <div class="contact__social" aria-label="Social links">
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="GitHub profile"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  🐙
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="LinkedIn profile"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  💼
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="Twitter profile"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  🐦
+                </a>
+                <a
+                  href="mailto:yaswanthmedarametla2@gmail.com"
+                  class="social-link"
+                  aria-label="Send email"
+                >
+                  ✉️
+                </a>
+              </div>
+            </div>
+
+            <div class="contact__form-wrapper reveal-on-scroll">
+              <form
+                class="contact-form"
+                action="mailto:yaswanthmedarametla2@gmail.com"
+                method="GET"
+              >
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Project Case Study Modal -->
+    <div
+      class="modal"
+      id="project-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="project-modal-title"
+    >
+      <div class="modal__overlay" data-close-modal></div>
+      <div class="modal__dialog" role="document">
+        <button class="modal__close" type="button" aria-label="Close case study" data-close-modal>
+          ×
+        </button>
+        <div class="modal__content">
+          <span class="modal__badge" id="project-modal-badge"></span>
+          <h2 class="modal__title" id="project-modal-title"></h2>
+          <p class="modal__subtitle" id="project-modal-subtitle"></p>
+
+          <div class="modal__grid">
+            <div class="modal__left">
+              <h3>Overview</h3>
+              <p id="project-modal-description"></p>
+
+              <h3>Architecture</h3>
+              <div class="modal__architecture">
+                <!-- Architecture diagram placeholder -->
+                <!-- Replace with actual architecture diagram (recommended: 1200x800px PNG/SVG) -->
+                <div class="architecture-placeholder">
+                  <span>Architecture Diagram</span>
+                </div>
+              </div>
+
+              <h3>Key Features</h3>
+              <ul id="project-modal-features" class="modal__list"></ul>
+
+              <h3>Metrics &amp; Results</h3>
+              <ul id="project-modal-metrics" class="modal__list"></ul>
+            </div>
+
+            <div class="modal__right">
+              <h3>Screenshots</h3>
+              <div class="modal__screenshots">
+                <!-- Replace with actual screenshots (recommended: 800x600px) -->
+                <div class="screenshot-placeholder">Screenshot 1</div>
+                <div class="screenshot-placeholder">Screenshot 2</div>
+                <div class="screenshot-placeholder">Screenshot 3</div>
+              </div>
+
+              <h3>Challenges &amp; Solutions</h3>
+              <ul id="project-modal-challenges" class="modal__list"></ul>
+
+              <div class="modal__links">
+                <a id="project-modal-github" href="#" target="_blank" rel="noreferrer" class="btn btn--ghost">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__left">
+          <p>Built with ❤️ using vanilla JavaScript</p>
+          <p>© 2026 Yaswanth Chowdary Medarametla</p>
+        </div>
+        <div class="footer__links">
+          <a href="#projects">Projects</a>
+          <a href="assets/docs/Yaswanth_Resume.pdf" download>Resume</a>
+          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="#" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <button class="back-to-top" type="button" aria-label="Back to top">
+          ↑
+        </button>
+      </div>
+    </footer>
+
+    <!-- Main script -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
