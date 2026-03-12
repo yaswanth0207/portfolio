@@ -161,10 +161,11 @@
   // ------------------------------------------
   // Typing effect
   // ------------------------------------------
+  // Rotating phrases in hero (no "RAG expert" / "Hackathon winner" – those stay in About/stats only)
   const typingPhrases = [
-    "RAG Systems Expert",
-    "Multi-Agent Architect",
-    "Hackathon Winner",
+    "Solving Problems with AI",
+    "Building Intelligent Agents",
+    "Multi-Agent Workflows",
     "Data + AI Engineer",
   ];
 
@@ -206,6 +207,17 @@
     window.addEventListener("beforeunload", () => {
       if (typingTimeoutId) clearTimeout(typingTimeoutId);
     });
+    // When hero gets focus (e.g. tab or click), advance to next phrase
+    const heroEl = document.getElementById("hero");
+    if (heroEl) {
+      heroEl.addEventListener("focusin", () => {
+        if (typingTimeoutId) clearTimeout(typingTimeoutId);
+        typingIndex = (typingIndex + 1) % typingPhrases.length;
+        charIndex = 0;
+        isDeleting = false;
+        typeLoop();
+      });
+    }
   }
 
   // ------------------------------------------
