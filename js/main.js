@@ -15,6 +15,7 @@
   const projectCards = document.querySelectorAll(".project-card");
   const modal = document.getElementById("project-modal");
   const modalCloseEls = modal ? modal.querySelectorAll("[data-close-modal]") : [];
+  const copyEmailButtons = document.querySelectorAll("[data-copy-email]");
 
   let lastScrollY = window.scrollY;
 
@@ -159,6 +160,49 @@
   window.addEventListener("load", updateHeaderState);
 
   // ------------------------------------------
+  // Copy email button
+  // ------------------------------------------
+  function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    // Fallback for non-secure contexts / older browsers
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      return Promise.resolve();
+    } catch (err) {
+      document.body.removeChild(ta);
+      return Promise.reject(err);
+    }
+  }
+
+  copyEmailButtons.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const email = btn.getAttribute("data-copy-email");
+      if (!email) return;
+      const original = btn.textContent;
+      try {
+        await copyToClipboard(email);
+        btn.textContent = "Copied";
+      } catch {
+        btn.textContent = "Copy failed";
+      } finally {
+        setTimeout(() => {
+          btn.textContent = original || "Copy";
+        }, 1200);
+      }
+    });
+  });
+
+  // ------------------------------------------
   // Typing effect
   // ------------------------------------------
   // Rotating phrases in hero (no "RAG expert" / "Hackathon winner" – those stay in About/stats only)
@@ -258,13 +302,45 @@
   // Project filters
   // ------------------------------------------
   function applyFilter(filter) {
+    const grid = document.querySelector(".projects__grid");
+    let visibleCount = 0;
+
+    if (grid) {
+      // Prevent noticeable left-right “travel” during reflow
+      grid.classList.add("is-filtering");
+      window.clearTimeout(grid._filterT);
+      grid._filterT = window.setTimeout(() => grid.classList.remove("is-filtering"), 260);
+    }
+
     projectCards.forEach((card) => {
       const categories = (card.getAttribute("data-category") || "").toLowerCase();
       const isVisible = filter === "all" || categories.includes(filter);
-      card.style.opacity = isVisible ? "1" : "0";
-      card.style.transform = isVisible ? "" : "translateY(10px)";
-      card.style.pointerEvents = isVisible ? "auto" : "none";
+
+      // Only show the "featured" layout on the All view
+      if (card.dataset.featured === "true") {
+        card.classList.toggle("project-card--featured", filter === "all");
+      }
+
+      if (isVisible) {
+        visibleCount += 1;
+        // Ensure it participates in the grid layout
+        card.style.display = "";
+        card.style.opacity = "1";
+        card.style.transform = "";
+        card.style.pointerEvents = "auto";
+      } else {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(10px)";
+        card.style.pointerEvents = "none";
+        // Remove from layout immediately to avoid large empty grid space
+        card.style.display = "none";
+      }
     });
+
+    if (grid) {
+      grid.classList.toggle("projects__grid--single", visibleCount === 1);
+      grid.classList.toggle("projects__grid--double", visibleCount === 2);
+    }
   }
 
   filterButtons.forEach((btn) => {
@@ -378,6 +454,52 @@
   const modalGithubLink = document.getElementById("project-modal-github");
 
   let lastFocusedElement = null;
+  let removeModalTrap = null;
+
+  function getFocusableElements(root) {
+    if (!root) return [];
+    const selectors = [
+      "a[href]",
+      "button:not([disabled])",
+      "input:not([disabled])",
+      "textarea:not([disabled])",
+      "select:not([disabled])",
+      "[tabindex]:not([tabindex='-1'])",
+    ];
+    return Array.from(root.querySelectorAll(selectors.join(","))).filter(
+      (el) => el.offsetParent !== null && !el.hasAttribute("aria-hidden")
+    );
+  }
+
+  function trapFocus(modalRoot) {
+    const dialog = modalRoot.querySelector(".modal__dialog");
+    if (!dialog) return () => {};
+
+    const onKeyDown = (e) => {
+      if (e.key !== "Tab" || !modalRoot.classList.contains("modal--open")) return;
+      const focusables = getFocusableElements(dialog);
+      if (!focusables.length) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+
+      if (e.shiftKey) {
+        if (active === first || active === dialog) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }
 
   function clearList(el) {
     if (!el) return;
@@ -418,7 +540,14 @@
     document.body.style.overflow = "hidden";
 
     const dialog = modal.querySelector(".modal__dialog");
-    if (dialog) dialog.focus();
+    if (removeModalTrap) removeModalTrap();
+    removeModalTrap = trapFocus(modal);
+    if (dialog) {
+      dialog.setAttribute("tabindex", "-1");
+      dialog.focus();
+      const focusables = getFocusableElements(dialog);
+      if (focusables.length) focusables[0].focus();
+    }
   }
 
   function closeModal() {
@@ -426,6 +555,10 @@
     modal.classList.remove("modal--open");
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    if (removeModalTrap) {
+      removeModalTrap();
+      removeModalTrap = null;
+    }
     if (lastFocusedElement && lastFocusedElement.focus) {
       lastFocusedElement.focus();
     }
@@ -477,6 +610,7 @@
     const particleCount = isMobile
       ? Math.min(25, Math.floor(width / 30))
       : Math.min(80, Math.floor(width / 20));
+    const alpha = isMobile ? 0.55 : 0.9;
 
     const mouse = { x: width / 2, y: height / 3 };
 
@@ -521,7 +655,7 @@
         const y = p.baseY + Math.sin(p.angle * 1.2) * (p.distance * 0.4) + p.offsetY;
 
         const gradient = ctx.createRadialGradient(x, y, 0, x, y, p.radius * 4);
-        gradient.addColorStop(0, "rgba(0,212,255,0.9)");
+        gradient.addColorStop(0, `rgba(0,212,255,${alpha})`);
         gradient.addColorStop(1, "rgba(178,75,243,0)");
 
         ctx.beginPath();
