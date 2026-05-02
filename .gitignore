@@ -12,3 +12,6 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Local tooling (resume PDF extraction)
+.venv-resume/

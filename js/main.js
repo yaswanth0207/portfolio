@@ -361,82 +361,78 @@
       title: "Agentic RAG Chatbot",
       subtitle: "Hybrid retrieval system with persistent memory",
       description:
-        "A production-ready Agentic RAG chatbot that combines BM25 and semantic retrieval with a LangGraph-powered state machine for long-term memory and conversation management. The system is fully local using Ollama, achieving a 0.88 RAGAS faithfulness score and sub-second latency on typical workloads.",
+        "Hackathon-winning production RAG system with hybrid retrieval (BM25 + semantic), FlashRank cross-encoder reranking, and a LangGraph state machine for persistent memory. Fully local deployment using Ollama (Llama 3.1-8B) with evaluation-driven iteration via RAGAS.",
       features: [
-        "Hybrid BM25 + dense vector retrieval with dynamic routing",
-        "LangGraph agent orchestration for conversation and memory state",
-        "FlashRank cross-encoder for high-precision reranking of candidates",
-        "Configurable retriever pipeline with evaluation-oriented tracing",
-        "Observability hooks for latency, top-k statistics, and context window usage",
+        "Hybrid retrieval (BM25 + semantic) with FlashRank reranking (precision improved from 0.65 → 0.92)",
+        "LangGraph state machine for selective memory across conversations",
+        "Chunking + ingestion pipelines with ChromaDB and LlamaIndex",
+        "Local inference via Ollama—under 1s query latency, zero API costs",
+        "Quality loops using RAGAS metrics until production-grade precision",
       ],
       metrics: [
-        "0.88 RAGAS faithfulness score on evaluation dataset",
-        "< 1 second median end-to-end latency on consumer hardware",
-        "100% local inference using Ollama models (no external APIs)",
-        "Stable context management over multi-turn conversations",
+        "RAGAS faithfulness: 0.88",
+        "Context precision: 0.92",
+        "< 1s median latency on local hardware",
+        "100% local inference (Ollama)",
       ],
       challenges: [
-        "Balancing retrieval recall vs. context window limits for long conversations",
-        "Designing evaluation suites that catch subtle hallucinations",
-        "Optimizing vector store queries and reranking overhead on CPU-only hardware",
+        "Tuning hybrid retrieval vs. latency on CPU-only hardware",
+        "Designing memory policies that stay faithful across long threads",
+        "Building evaluation suites that catch retrieval regressions early",
       ],
       links: {
-        demo: "#", // Add actual URL
         github: "#", // Add actual URL
-        blog: "#", // Add actual URL
       },
     },
-    codelens: {
-      badge: "💻 Developer Tool",
-      title: "CodeLens - Code Documentation Assistant",
-      subtitle: "RAG system for code understanding and documentation",
+    "multimodal-rag": {
+      badge: "Multimodal RAG",
+      title: "Multimodal RAG System",
+      subtitle: "Hybrid dense + graph retrieval across modalities",
       description:
-        "CodeLens ingests a GitHub repository and builds a syntax-aware code index using Tree-sitter. It powers cross-file search, dependency graph exploration, and automatic docstring suggestions for multiple programming languages.",
+        "Multimodal RAG pipeline ingesting PDF, PNG, MP3, JPEG, and TXT via OCR, image captioning, and audio transcription. Uses Hugging Face Transformers and PyTorch for embeddings; combines Qdrant vector search with a Neo4j knowledge graph for hybrid retrieval and semantic reranking.",
       features: [
-        "GitHub integration for syncing branches and pull requests",
-        "Tree-sitter based parsing for robust, language-aware chunking",
-        "Vectorized code embeddings with metadata-rich chunks",
-        "Dependency graph visualization to understand module relationships",
-        "Docstring generation and refactoring suggestions for legacy code",
+        "Cross-modal embeddings and ingestion for heterogeneous file types",
+        "Qdrant + Neo4j hybrid retrieval with semantic reranking",
+        "~40% improvement in RAGAS retrieval precision vs dense-only baseline",
+        "MLflow tracking across embedding models and chunking strategies",
+        "FastAPI backend + Streamlit monitoring UI",
       ],
       metrics: [
-        "Supports multiple languages across a single unified index",
-        "Speeds up onboarding by summarizing modules and key entrypoints",
-        "Improves documentation coverage with AI-suggested docstrings",
+        "~40% lift in RAGAS retrieval precision vs dense-only baseline",
+        "Experiment lineage tracked in MLflow",
+        "Real-time monitoring via Streamlit UI",
       ],
       challenges: [
-        "Handling large monorepos while keeping indexing performant",
-        "Designing chunking strategies that respect language semantics",
-        "Ensuring generated documentation remains consistent with coding standards",
+        "Aligning chunking strategies across modalities without losing context",
+        "Balancing graph complexity vs query latency",
+        "Managing embedding experiments reproducibly at scale",
       ],
       links: {
-        demo: "#", // Add actual URL
         github: "#", // Add actual URL
-        blog: "#", // Add actual URL
       },
     },
-    "data-analyst": {
-      badge: "📊 Latest Project",
-      title: "AI Data Analyst Agent",
-      subtitle: "Multi-agent system for automated data analysis",
+    "ragas-platform": {
+      badge: "RAG evaluation",
+      title: "RAGAS Evaluation Platform",
+      subtitle: "Automated benchmarking with CI quality gates",
       description:
-        "A LangGraph-driven multi-agent system that turns CSV uploads into dashboards, pandas code, and human-readable reports. It chains analysis, visualization, and narrative agents to deliver end-to-end insights.",
+        "FastAPI + PostgreSQL backend that runs automated A/B tests across chunk sizes, retrieval strategies, and LLM configurations—implemented core RAGAS metrics with per-question breakdowns, statistical analysis, PDF reporting, and pytest-driven CI gates.",
       features: [
-        "Automatic dashboard generation with 4 charts per dataset upload",
-        "Natural language to pandas code generation with safety checks",
-        "Four analysis modes: Analyze, Visualize, Summarize, Find Anomalies",
-        "Self-healing agent that retries and patches failing code blocks",
-        "PDF report generation combining charts, tables, and textual insights",
+        "Four RAGAS metrics: faithfulness, context precision/recall, answer relevancy",
+        "Embedding benchmarks via Hugging Face Transformers across retrieval setups",
+        "MLflow logging for reproducibility and artifact versioning",
+        "PDF reports with executive summaries and actionable recommendations",
+        "pytest in CI—build fails if faithfulness drops below 0.85",
       ],
       metrics: [
-        "Generates first dashboard within seconds for typical CSV sizes",
-        "Reduces manual exploratory analysis time significantly",
-        "Robust to noisy or partially-cleaned datasets via defensive agents",
+        "Faithfulness gate: 0.85 minimum in CI",
+        "Full experiment reproducibility via MLflow",
+        "Automated statistical analysis with scikit-learn",
       ],
       challenges: [
-        "Designing reliable guardrails around executable pandas code",
-        "Keeping the multi-agent graph understandable and debuggable",
-        "Balancing exploration vs. overfitting insights on small datasets",
+        "Standardizing evaluation datasets across configuration changes",
+        "Keeping CI runtime reasonable while running full RAGAS suites",
+        "Surfacing actionable deltas in PDF reports for stakeholders",
       ],
       links: {
         github: "#", // Add actual URL
